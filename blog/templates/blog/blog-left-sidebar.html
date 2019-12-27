@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Blog Left Sidebar Page</title>
+{% endblock %}
+
+{% block main %}
+
+        <!-- Breadcrumb area Start -->
+        <section class="page-title-area bg-color" data-bg-color="#f4f4f4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">Blog Left Sidebar</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'index:index' %}">Home</a></li>
+                            <li class="current"><span>Blog Left Sidebar</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb area End -->
+
+        <!-- Main Content Wrapper Start -->
+        <main class="main-content-wrapper">
+            <div class="inner-page-content ptb--80 ptb-md--60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 order-lg-2 mb-md--50">
+                            <div class="row">
+                                <div class="col-12 mb--45">
+                                    <article class="post format-standard">
+                                        <div class="post__inner">
+                                            <div class="post__media">
+                                                <figure class="image">
+                                                    <img src="{{ MEDIA_URL }}/img/blog/blog-06.jpg" alt="post" class="w-100">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="item-overlay"></a>
+                                                </figure>
+                                            </div>
+                                            <div class="post__info">
+                                                <h2 class="post__title"><a href="{% url 'blog:blog_details_image' %}">There are many
+                                                        variations of passages of Lorem.</a></h2>
+                                                <div class="post__meta">
+                                                    <span class="posted-on">13 April, 2019</span>
+                                                    <span class="posted-by"><span>By: </span><a
+                                                            href="{% url 'blog:blog_details_image' %}">Robert Joe</a></span>
+                                                </div>
+                                                <div class="post__desc">
+                                                    <p>Financial services must tie these three factors together –
+                                                        customer experience, best practices and reliability</p>
+                                                </div>
+                                                <div class="post__footer-meta">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="read-more-btn">Read
+                                                        More</a>
+                                                    <div class="social-share">
+                                                        <span>Share <i class="fa fa-share-alt"></i></span>
+                                                        <div class="social social-square space-5">
+                                                            <a href="https://www.facebook.com"
+                                                                class="social__link facebook" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-facebook"></i>
+                                                                <span class="sr-only">Facebook</span>
+                                                            </a>
+                                                            <a href="https://www.twitter.com"
+                                                                class="social__link twitter" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <span class="sr-only">Twitter</span>
+                                                            </a>
+                                                            <a href="https://www.plus.google.com"
+                                                                class="social__link gplus" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-google-plus"></i>
+                                                                <span class="sr-only">Goggle Plus</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>                            
+                                </div>
+                                <div class="col-12 mb--45">
+                                    <article class="post format-gallery">
+                                        <div class="post__inner">
+                                            <div class="post__media">
+                                                <div class="element-carousel" data-slick-options='{
+                                                    "slidesToShow": 1,
+                                                    "slidesToScroll": 1,
+                                                    "autoplay": true,
+                                                    "autoplaySpeed": 1500
+                                                }'>
+                                                    <div class="item">
+                                                        <img src="{{ MEDIA_URL }}/img/blog/blog-07.jpg" alt="post Image"
+                                                            class="w-100">
+                                                        <a href="{% url 'blog:blog_details_image' %}" class="item-overlay"></a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <img src="{{ MEDIA_URL }}/img/blog/blog-08.jpg" alt="post Image"
+                                                            class="w-100">
+                                                        <a href="{% url 'blog:blog_details_image' %}" class="item-overlay"></a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <img src="{{ MEDIA_URL }}/img/blog/blog-09.jpg" alt="post Image"
+                                                            class="w-100">
+                                                        <a href="{% url 'blog:blog_details_image' %}" class="item-overlay"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post__info">
+                                                <h2 class="post__title"><a href="blog-details-gallery.html">There are
+                                                        many variations of passages of Lorem.</a></h2>
+                                                <div class="post__meta">
+                                                    <span class="posted-on">13 April, 2019</span>
+                                                    <span class="posted-by"><span>By: </span><a
+                                                            href="blog-details-gallery.html">Robert Joe</a></span>
+                                                </div>
+                                                <div class="post__desc">
+                                                    <p>Financial services must tie these three factors together –
+                                                        customer experience, best practices and reliability</p>
+                                                </div>
+                                                <div class="post__footer-meta">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="read-more-btn">Read
+                                                        More</a>
+                                                    <div class="social-share">
+                                                        <span>Share <i class="fa fa-share-alt"></i></span>
+                                                        <div class="social social-square space-5">
+                                                            <a href="https://www.facebook.com"
+                                                                class="social__link facebook" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-facebook"></i>
+                                                                <span class="sr-only">Facebook</span>
+                                                            </a>
+                                                            <a href="https://www.twitter.com"
+                                                                class="social__link twitter" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <span class="sr-only">Twitter</span>
+                                                            </a>
+                                                            <a href="https://www.plus.google.com"
+                                                                class="social__link gplus" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-google-plus"></i>
+                                                                <span class="sr-only">Goggle Plus</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>                               
+                                </div>
+                                <div class="col-12 mb--45">
+                                    <article class="post format-audio">
+                                        <div class="post__inner">
+                                            <div class="post__media">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe allow="autoplay"
+                                                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/182537870&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="post__info">
+                                                <h2 class="post__title"><a href="blog-details-audio.html">There are many
+                                                        variations of passages of Lorem.</a></h2>
+                                                <div class="post__meta">
+                                                    <span class="posted-on">13 April, 2019</span>
+                                                    <span class="posted-by"><span>By: </span><a
+                                                            href="blog-details-audio.html">Robert Joe</a></span>
+                                                </div>
+                                                <div class="post__desc">
+                                                    <p>Financial services must tie these three factors together –
+                                                        customer experience, best practices and reliability</p>
+                                                </div>
+                                                <div class="post__footer-meta">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="read-more-btn">Read
+                                                        More</a>
+                                                    <div class="social-share">
+                                                        <span>Share <i class="fa fa-share-alt"></i></span>
+                                                        <div class="social social-square space-5">
+                                                            <a href="https://www.facebook.com"
+                                                                class="social__link facebook" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-facebook"></i>
+                                                                <span class="sr-only">Facebook</span>
+                                                            </a>
+                                                            <a href="https://www.twitter.com"
+                                                                class="social__link twitter" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <span class="sr-only">Twitter</span>
+                                                            </a>
+                                                            <a href="https://www.plus.google.com"
+                                                                class="social__link gplus" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-google-plus"></i>
+                                                                <span class="sr-only">Goggle Plus</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>                             
+                                </div>
+                                <div class="col-12 mb--45">
+                                    <article class="post format-video">
+                                        <div class="post__inner">
+                                            <div class="post__media">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item"
+                                                        src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+                                                        allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="post__info">
+                                                <h2 class="post__title"><a href="blog-details-video.html">There are many
+                                                        variations of passages of Lorem.</a></h2>
+                                                <div class="post__meta">
+                                                    <span class="posted-on">13 April, 2019</span>
+                                                    <span class="posted-by"><span>By: </span><a
+                                                            href="blog-details-video.html">Robert Joe</a></span>
+                                                </div>
+                                                <div class="post__desc">
+                                                    <p>Financial services must tie these three factors together –
+                                                        customer experience, best practices and reliability</p>
+                                                </div>
+                                                <div class="post__footer-meta">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="read-more-btn">Read
+                                                        More</a>
+                                                    <div class="social-share">
+                                                        <span>Share <i class="fa fa-share-alt"></i></span>
+                                                        <div class="social social-square space-5">
+                                                            <a href="https://www.facebook.com"
+                                                                class="social__link facebook" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-facebook"></i>
+                                                                <span class="sr-only">Facebook</span>
+                                                            </a>
+                                                            <a href="https://www.twitter.com"
+                                                                class="social__link twitter" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <span class="sr-only">Twitter</span>
+                                                            </a>
+                                                            <a href="https://www.plus.google.com"
+                                                                class="social__link gplus" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-google-plus"></i>
+                                                                <span class="sr-only">Goggle Plus</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>                               
+                                </div>
+                                <div class="col-12 mb--45">
+                                    <article class="post">
+                                        <div class="post__inner">
+                                            <div class="post__media">
+                                                <figure class="image">
+                                                    <img src="{{ MEDIA_URL }}/img/blog/blog-11-560x345.png" alt="Blog"
+                                                        class="w-100">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="item-overlay"></a>
+                                                </figure>
+                                            </div>
+                                            <div class="post__info">
+                                                <h2 class="post__title"><a href="{% url 'blog:blog_details_image' %}">There are many
+                                                        variations of passages of Lorem.</a></h2>
+                                                <div class="post__meta">
+                                                    <span class="posted-on">13 April, 2019</span>
+                                                    <span class="posted-by"><span>By: </span><a
+                                                            href="{% url 'blog:blog_details_image' %}">Robert Joe</a></span>
+                                                </div>
+                                                <div class="post__desc">
+                                                    <p>Financial services must tie these three factors together –
+                                                        customer experience, best practices and reliability</p>
+                                                </div>
+                                                <div class="post__footer-meta">
+                                                    <a href="{% url 'blog:blog_details_image' %}" class="read-more-btn">Read
+                                                        More</a>
+                                                    <div class="social-share">
+                                                        <span>Share <i class="fa fa-share-alt"></i></span>
+                                                        <div class="social social-square space-5">
+                                                            <a href="https://www.facebook.com"
+                                                                class="social__link facebook" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-facebook"></i>
+                                                                <span class="sr-only">Facebook</span>
+                                                            </a>
+                                                            <a href="https://www.twitter.com"
+                                                                class="social__link twitter" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <span class="sr-only">Twitter</span>
+                                                            </a>
+                                                            <a href="https://www.plus.google.com"
+                                                                class="social__link gplus" target="_blank"
+                                                                rel="noopener noreferrer">
+                                                                <i class="fa fa-google-plus"></i>
+                                                                <span class="sr-only">Goggle Plus</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <ul class="pagination">
+                                        <li><span class="page-number current">1</span></li>
+                                        <li><a href="#" class="page-number">2</a></li>
+                                        <li><span class="dot"></span></li>
+                                        <li><span class="dot"></span></li>
+                                        <li><span class="dot"></span></li>
+                                        <li><a href="#" class="page-number">16</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 order-lg-1">
+                            <div class="blog-sidebar pr--15 pr-lg--0">
+                                <div class="bl-widget author">
+                                    <div class="inner">
+                                        <div class="thumb">
+                                            <img src="{{ MEDIA_URL }}/img/others/team-04.jpg" alt="Author Images">
+                                        </div>
+                                        <div class="info">
+                                            <h5 class="mb--5">Ayo Burion</h5>
+                                            <p class="degne">UI/ Web Designer</p>
+                                            <p class="mb--25">An Affrotable world wide business service It is</p>
+                                            <div class="social mb--20">
+                                                <a href="https://www.facebook.com" class="social__link">
+                                                    <i class="fa fa-facebook"></i>
+                                                    <span class="sr-only">Facebook</span>
+                                                </a>
+                                                <a href="https://www.twitter.com" class="social__link">
+                                                    <i class="fa fa-twitter"></i>
+                                                    <span class="sr-only">Twitter</span>
+                                                </a>
+                                                <a href="https://www.plus.google.com" class="social__link">
+                                                    <i class="fa fa-google-plus"></i>
+                                                    <span class="sr-only">Google Plus</span>
+                                                </a>
+                                            </div>
+                                            <div class="autor-meta">
+                                                <span>Articles <strong>84</strong></span>
+                                                <span>Comments <strong>490</strong></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bl-widget post mt--50">
+                                    <div class="inner">
+                                        <h5 class="title">Top News</h5>
+                                        <ul class="post-list">
+                                            <li>
+                                                <a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                                                <span><i class="fa fa-clock-o"></i> 3 Days Ago</span>
+                                            </li>
+                                            <li>
+                                                <a href="#">There are many variations of passages of Lorem Ipsum available, </a>
+                                                <span><i class="fa fa-clock-o"></i> 8 Days Ago</span>
+                                            </li>
+                                            <li>
+                                                <a href="#">Lorem Ipsum is simply dummy text of the printing.</a>
+                                                <span><i class="fa fa-clock-o"></i> 4 Days Ago</span>
+                                            </li>
+                                            <li>
+                                                <a href="#">Sed ut perspiciatis unde omnis iste natus error.</a>
+                                                <span><i class="fa fa-clock-o"></i> 6 Days Ago</span>
+                                            </li>
+                                            <li>
+                                                <a href="#">Lorem Ipsum is simply dummy text.</a>
+                                                <span><i class="fa fa-clock-o"></i> 5 Days Ago</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bl-widget quote mt--50">
+                                    <div class="inner">
+                                        <div class="post-quote">
+                                            <div class="quote-info">
+                                                <i class="fa fa-quote-right"></i>
+                                                <div class="info">
+                                                    <h6 class="mb--0">CLEM OJAK</h6>
+                                                    <span>Designer</span>
+                                                </div>
+                                            </div>
+                                            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Main Content Wrapper End -->
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}
