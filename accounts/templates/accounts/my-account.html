@@ -44,7 +44,7 @@
                                     <div class="tab-pane fade" id="orders">
                                         <div class="message-box mb--30 d-none">
                                             <p><i class="fa fa-check-circle"></i>No order has been made yet.</p>
-                                            <a href="{% url 'shop:shop' %}">Go Shop</a>
+                                            <a href="{% url 'shop:shop' 'all' %}">Go Shop</a>
                                         </div>
                                         <div class="table-content table-responsive">
                                             <table class="table text-center">
@@ -79,7 +79,7 @@
                                     <div class="tab-pane fade" id="downloads">
                                         <div class="message-box mb--30 d-none">
                                             <p><i class="fa fa-exclamation-circle"></i>No downloads available yet.</p>
-                                            <a href="{% url 'shop:shop' %}">Go Shop</a>
+                                            <a href="{% url 'shop:shop' 'all' %}">Go Shop</a>
                                         </div>
                                         <div class="table-content table-responsive">
                                             <table class="table text-center">

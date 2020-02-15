@@ -32,13 +32,13 @@
 
 <body>
 <!-- Preloader Start -->
-{#<div class="ft-preloader active">#}
-{#    <div class="ft-preloader-inner h-100 d-flex align-items-center justify-content-center">#}
-{#        <div class="ft-child ft-bounce1"></div>#}
-{#        <div class="ft-child ft-bounce2"></div>#}
-{#        <div class="ft-child ft-bounce3"></div>#}
-{#    </div>#}
-{#</div>#}
+<div class="ft-preloader active">
+    <div class="ft-preloader-inner h-100 d-flex align-items-center justify-content-center">
+        <div class="ft-child ft-bounce1"></div>
+        <div class="ft-child ft-bounce2"></div>
+        <div class="ft-child ft-bounce3"></div>
+    </div>
+</div>
 <!-- Preloader End -->
 
 <!-- Main Wrapper Start -->
@@ -86,7 +86,7 @@
                                                             <a href="{% url 'shop:shop_full_width' %}">Full Width</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{% url 'shop:shop' %}">Left Sidebar</a>
+                                                            <a href="{% url 'shop:shop' 'all' %}">Left Sidebar</a>
                                                         </li>
                                                         <li>
                                                             <a href="{% url 'shop:shop_right_sidebar' %}">Right
@@ -379,7 +379,7 @@
                                             </div>
                                             <div class="slider-content__btn">
                                                 <a
-                                                        href="{% url 'shop:shop' %}"
+                                                        href="{% url 'shop:shop' 'all' %}"
                                                         class="btn-link"
                                                         data-animation="fadeInUp"
                                                         data-duration=".3s"
@@ -443,7 +443,7 @@
                                             </div>
                                             <div class="slider-content__btn">
                                                 <a
-                                                        href="{% url 'shop:shop' %}"
+                                                        href="{% url 'shop:shop' 'all' %}"
                                                         class="btn-link"
                                                         data-animation="fadeInUp"
                                                         data-duration=".3s"
@@ -1079,7 +1079,7 @@
                                     >
                                         <div class="banner__info-inner">
                                             <h2 class="banner__title">LUXURY BACKPACK</h2>
-                                            <a href="{% url 'shop:shop' %}" class="banner__btn">Shop Now</a>
+                                            <a href="{% url 'shop:shop' 'all' %}" class="banner__btn">Shop Now</a>
                                             <p class="banner__text">GET EXTRA DISCOUNT 26% OFF</p>
                                         </div>
                                     </div>
@@ -1102,7 +1102,7 @@
                                     >
                                         <div class="banner__info-inner">
                                             <h2 class="banner__title">SUPERIOR BACKPACK</h2>
-                                            <a href="{% url 'shop:shop' %}" class="banner__btn">Shop Now</a>
+                                            <a href="{% url 'shop:shop' 'all' %}" class="banner__btn">Shop Now</a>
                                             <p class="banner__text">GET EXTRA DISCOUNT 26% OFF</p>
                                         </div>
                                     </div>
@@ -1517,7 +1517,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="{% url 'shop:shop' %}" class="btn-link">Shop Now</a>
+                                <a href="{% url 'shop:shop' 'all' %}" class="btn-link">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -1645,31 +1645,31 @@
                         <h3 class="widget-title mb--35 mb-sm--15">Store Menu</h3>
                         <ul class="footer-menu">
                             <li>
-                                <a href="{% url 'shop:shop' %}">
+                                <a href="{% url 'shop:shop' 'all' %}">
                                     <i class="fa fa-angle-right"></i>
                                     <span>Best Seller</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{% url 'shop:shop' %}">
+                                <a href="{% url 'shop:shop' 'all' %}">
                                     <i class="fa fa-angle-right"></i>
                                     <span>New Arrivals</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{% url 'shop:shop' %}">
+                                <a href="{% url 'shop:shop' 'all' %}">
                                     <i class="fa fa-angle-right"></i>
                                     <span>Men</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{% url 'shop:shop' %}">
+                                <a href="{% url 'shop:shop' 'all' %}">
                                     <i class="fa fa-angle-right"></i>
                                     <span>Women</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{% url 'shop:shop' %}">
+                                <a href="{% url 'shop:shop' 'all' %}">
                                     <i class="fa fa-angle-right"></i>
                                     <span>Accessories</span>
                                 </a>
@@ -1738,7 +1738,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'shop:shop' %}">
+                                    <a href="{% url 'shop:shop' 'all' %}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>Shopping &amp; Delivery</span>
                                     </a>
@@ -1861,7 +1861,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{% url 'shop:shop' %}">
+                        <a href="{% url 'shop:shop' 'all' %}">
                             <span class="mm-text">New Arrivals</span>
                         </a>
                     </li>
@@ -1881,7 +1881,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span class="mm-text">Left Sidebar</span>
                                         </a>
                                     </li>
@@ -2349,10 +2349,10 @@
                                 <div class="product-footer-meta">
                                     <p>
                                         <span>Category:</span>
-                                        <a href="{% url 'shop:shop' %}">Full Sweater</a>,
-                                        <a href="{% url 'shop:shop' %}">SweatShirt</a>,
-                                        <a href="{% url 'shop:shop' %}">Jacket</a>,
-                                        <a href="{% url 'shop:shop' %}">Blazer</a>
+                                        <a href="{% url 'shop:shop' 'all' %}">Full Sweater</a>,
+                                        <a href="{% url 'shop:shop' 'all' %}">SweatShirt</a>,
+                                        <a href="{% url 'shop:shop' 'all' %}">Jacket</a>,
+                                        <a href="{% url 'shop:shop' 'all' %}">Blazer</a>
                                     </p>
                                 </div>
                             </div>

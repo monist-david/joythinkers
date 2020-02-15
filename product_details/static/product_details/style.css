@@ -1,0 +1,11 @@
+.details_image {
+  width: 770px;
+  height: 2086px;
+  background-color: #ffffff;
+}
+
+.wrapping {
+  width: 80%;
+  overflow:hidden;
+  margin:auto;
+}

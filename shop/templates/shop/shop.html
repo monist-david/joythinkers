@@ -2,6 +2,7 @@
 
 {% block head %}
     <title>Shop Page</title>
+    {% load printname %}
 {% endblock %}
 
 {% block main %}
@@ -60,45 +61,48 @@
                         </div>
                         <div class="shop-products">
                             <div class="row">
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-03-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product__overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
+                                {% for image in all_product %}
+{#                                    {{ image.product_picture.name|hasNumber }}#}
+                                    <div class="col-xl-4 col-sm-6 mb--50">
+                                        <div class="payne-product">
+                                            <div class="product__inner">
+                                                <div class="product__image">
+                                                    <figure class="product__image--holder">
+                                                        <img src="{{ image.product_picture.url }}" alt="Product">
+                                                    </figure>
+                                                    <a href="{% url 'product_details:product_details' %}"
+                                                       class="product__overlay"></a>
+                                                    <div class="product__action">
+                                                        <a data-toggle="modal" data-target="#productModal"
+                                                           class="action-btn">
+                                                            <i class="fa fa-eye"></i>
+                                                            <span class="sr-only">Quick View</span>
+                                                        </a>
+                                                        <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
+                                                            <i class="fa fa-heart-o"></i>
+                                                            <span class="sr-only">Add to wishlist</span>
+                                                        </a>
+                                                        <a href="{% url 'compare:compare' %}" class="action-btn">
+                                                            <i class="fa fa-repeat"></i>
+                                                            <span class="sr-only">Add To Compare</span>
+                                                        </a>
+                                                        <a href="{% url 'cart:cart' %}" class="action-btn">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <span class="sr-only">Add To Cart</span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="product__info--right">
+                                                <div class="product__info">
+                                                    <div class="product__info--left">
+                                                        <h3 class="product__title">
+                                                            <a href="{% url 'product_details:product_details' %}">{{image.product_picture.name|noext}}</a>
+                                                        </h3>
+                                                        <div class="product__price">
+                                                            <span class="money">132.00</span>
+                                                            <span class="sign">$</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__info--right">
                                                         <span class="product__rating">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -106,738 +110,81 @@
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                         </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-03-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
+                                        <div class="payne-product-list">
+                                            <div class="product__inner">
+                                                <figure class="product__image">
+                                                    <a href="{% url 'product_details:product_details' %}"
+                                                       class="d-block">
+                                                        <img src="{{ MEDIA_URL }}/img/products/product-03-270x300.jpg"
+                                                             alt="Products">
                                                     </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-04-270x300.jpg" alt="Product">
+                                                    <div class="product__thumbnail-action">
+                                                        <a data-toggle="modal" data-target="#productModal"
+                                                           class="action-btn quick-view">
+                                                            <i class="fa fa-eye"></i>
+                                                            <span class="sr-only">Quick View</span>
+                                                        </a>
+                                                    </div>
                                                 </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
+                                                <div class="product__info">
                                                     <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
+                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro
+                                                            Begadi</a>
                                                     </h3>
                                                     <div class="product__price">
                                                         <span class="money">132.00</span>
                                                         <span class="sign">$</span>
                                                     </div>
-                                                </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-04-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
+                                                    <span class="product__rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                     </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-05-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
+                                                    <p class="product__short-description">
+                                                        Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at
+                                                        egestas
+                                                        magna molestie a. Proin ac ex maximus, ultrices justo eget,
+                                                        sodales
+                                                        orci. Aliquam egestas libero ac turpis pharetra
+                                                    </p>
+                                                    <div class="d-flex product__list-action">
+                                                        <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To
+                                                            Cart</a>
+                                                        <a href="{% url 'compare:compare' %}" class="action-btn">
+                                                            <i class="fa fa-repeat"></i>
+                                                            <span class="sr-only">Add To Compare</span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-05-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-06-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-06-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-07-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-07-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-08-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-08-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-09-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-09-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-sm-6 mb--50">
-                                    <div class="payne-product">
-                                        <div class="product__inner">
-                                            <div class="product__image">
-                                                <figure class="product__image--holder">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-10-270x300.jpg" alt="Product">
-                                                </figure>
-                                                <a href="{% url 'product_details:product_details' %}" class="product-overlay"></a>
-                                                <div class="product__action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        <span class="sr-only">Add to wishlist</span>
-                                                    </a>
-                                                    <a href="{% url 'wishlist:wishlist' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                    <a href="{% url 'cart:cart' %}" class="action-btn">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="sr-only">Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__info">
-                                                <div class="product__info--left">
-                                                    <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="money">132.00</span>
-                                                        <span class="sign">$</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info--right">
-                                                        <span class="product__rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="payne-product-list">
-                                        <div class="product__inner">
-                                            <figure class="product__image">
-                                                <a href="{% url 'product_details:product_details' %}" class="d-block">
-                                                    <img src="{{ MEDIA_URL }}/img/products/product-10-270x300.jpg"
-                                                         alt="Products">
-                                                </a>
-                                                <div class="product__thumbnail-action">
-                                                    <a data-toggle="modal" data-target="#productModal"
-                                                       class="action-btn quick-view">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </figure>
-                                            <div class="product__info">
-                                                <h3 class="product__title">
-                                                    <a href="{% url 'product_details:product_details' %}">Lexbaro Begadi</a>
-                                                </h3>
-                                                <div class="product__price">
-                                                    <span class="money">132.00</span>
-                                                    <span class="sign">$</span>
-                                                </div>
-                                                <span class="product__rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                <p class="product__short-description">
-                                                    Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas
-                                                    magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales
-                                                    orci. Aliquam egestas libero ac turpis pharetra
-                                                </p>
-                                                <div class="d-flex product__list-action">
-                                                    <a href="{% url 'cart:cart' %}" class="btn btn-size-sm">Add To Cart</a>
-                                                    <a href="{% url 'compare:compare' %}" class="action-btn">
-                                                        <i class="fa fa-repeat"></i>
-                                                        <span class="sr-only">Add To Compare</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <nav class="pagination-wrap">
                             <ul class="pagination">
-                                <li><span class="page-number current">1</span></li>
-                                <li><a href="#" class="page-number">2</a></li>
+                                {% if all_product.has_previous %}
+                                    <li><a class="page-number" href="?page={{ all_product.previous_page_number }}">&laquo;</a>
+                                    </li>
+                                {% endif %}
+
+                                <li><span class="page-number current">
+                                            {{ all_product.number }}
+                                        </span>
+                                </li>
                                 <li><span class="dot"></span></li>
                                 <li><span class="dot"></span></li>
                                 <li><span class="dot"></span></li>
-                                <li><a href="#" class="page-number">16</a></li>
+                                {% if all_product.has_next %}
+                                    <li><a class="page-number" href="?page={{ all_product.next_page_number }}">&raquo;</a></li>
+                                {% endif %}
                             </ul>
                         </nav>
                     </div>
@@ -847,44 +194,26 @@
                                 <h3 class="widget-title mb--25">Category</h3>
                                 <ul class="widget-list category-list">
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">Winter Collection</span>
+                                        <a href="{% url 'shop:shop' 'all' %}">
+                                            <span class="category-title">BUILDING SERIES</span>
                                             <i class="fa fa-angle-double-right"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">Women’s Clothes</span>
+                                        <a href="{% url 'shop:shop' 'all' %}">
+                                            <span class="category-title">VOLLEYS</span>
                                             <i class="fa fa-angle-double-right"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">Men’s Clothes</span>
+                                        <a href="{% url 'shop:shop' 'all' %}">
+                                            <span class="category-title">ANLMAI & INSECT SERIES</span>
                                             <i class="fa fa-angle-double-right"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">Kid’s Clothes</span>
-                                            <i class="fa fa-angle-double-right"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">Uncategorized</span>
-                                            <i class="fa fa-angle-double-right"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">Accessories</span>
-                                            <i class="fa fa-angle-double-right"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' %}">
-                                            <span class="category-title">New Arrival</span>
+                                        <a href="{% url 'shop:shop' 'all' %}">
+                                            <span class="category-title">WEAPONS SERIES</span>
                                             <i class="fa fa-angle-double-right"></i>
                                         </a>
                                     </li>
@@ -893,33 +222,33 @@
                             <div class="shop-widget mb--40">
                                 <h3 class="widget-title mb--30">Color</h3>
                                 <div class="widget-color">
-                                    <a href="{% url 'shop:shop' %}" class="red">Red</a>
-                                    <a href="{% url 'shop:shop' %}" class="pink">Pink</a>
-                                    <a href="{% url 'shop:shop' %}" class="black">black</a>
-                                    <a href="{% url 'shop:shop' %}" class="brown">brown</a>
-                                    <a href="{% url 'shop:shop' %}" class="blue">blue</a>
-                                    <a href="{% url 'shop:shop' %}" class="cholate">cholate</a>
-                                    <a href="{% url 'shop:shop' %}" class="copper">copper</a>
-                                    <a href="{% url 'shop:shop' %}" class="gray">grey</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="red">Red</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="pink">Pink</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="black">black</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="brown">brown</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="blue">blue</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="cholate">cholate</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="copper">copper</a>
+                                    <a href="{% url 'shop:shop' 'all' %}" class="gray">grey</a>
                                 </div>
                             </div>
                             <div class="shop-widget mb--40">
                                 <h3 class="widget-title mb--25">Price</h3>
                                 <ul class="widget-list price-list">
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>Low - Medium</span>
                                             <strong class="font-weight-medium">$10.00 - $45.00</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>Medium - High</span>
                                             <strong class="font-weight-medium">$45.00 - $60.00</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>High - Avobe</span>
                                             <strong class="font-weight-medium">$60.00 - $200</strong>
                                         </a>
@@ -930,25 +259,25 @@
                                 <h3 class="widget-title mb--25">Brand</h3>
                                 <ul class="widget-list brand-list">
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>Walmart</span>
                                             <strong class="color--red font-weight-medium">10</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>Yellow</span>
                                             <strong class="color--red font-weight-medium">50</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>H &amp; M</span>
                                             <strong class="color--red font-weight-medium">46</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shop:shop' %}">
+                                        <a href="{% url 'shop:shop' 'all' %}">
                                             <span>Black &amp; White</span>
                                             <strong class="color--red font-weight-medium">46</strong>
                                         </a>
@@ -958,17 +287,17 @@
                             <div class="shop-widget">
                                 <h3 class="widget-title mb--25">Tag</h3>
                                 <div class="tagcloud">
-                                    <a href="{% url 'shop:shop' %}">Cloth</a>
-                                    <a href="{% url 'shop:shop' %}">Blazer</a>
-                                    <a href="{% url 'shop:shop' %}">Jacket</a>
-                                    <a href="{% url 'shop:shop' %}">Polo Shirt</a>
-                                    <a href="{% url 'shop:shop' %}">T-Shirt</a>
-                                    <a href="{% url 'shop:shop' %}">Shoes</a>
-                                    <a href="{% url 'shop:shop' %}">Pant</a>
-                                    <a href="{% url 'shop:shop' %}">Party Dress</a>
-                                    <a href="{% url 'shop:shop' %}">Coktail Dress</a>
-                                    <a href="{% url 'shop:shop' %}">Sweater</a>
-                                    <a href="{% url 'shop:shop' %}">Jeans</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Cloth</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Blazer</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Jacket</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Polo Shirt</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">T-Shirt</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Shoes</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Pant</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Party Dress</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Coktail Dress</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Sweater</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Jeans</a>
                                 </div>
                             </div>
                         </aside>

@@ -7,7 +7,7 @@ from .views import ShopView, ShopFourColumnsView, ShopFullwidthView, ShopListVie
 
 app_name = 'shop'
 urlpatterns = [
-    path('', ShopView.as_view(), name='shop'),
+    path('<str:category>/', ShopView.as_view(), name='shop'),
     path('shop_four_columns/', ShopFourColumnsView.as_view(), name='shop_four_columns'),
     path('shop_full_width/', ShopFullwidthView.as_view(), name='shop_full_width'),
     path('shop_list/', ShopListView.as_view(), name='shop_list'),

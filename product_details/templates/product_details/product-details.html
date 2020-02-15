@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block head %}
+    {% load static %}
     <title>Product Details Page</title>
+    <link href="{% static 'product_details/style.css' %}" type="text/css"/>
 {% endblock %}
 
 {% block main %}
@@ -245,10 +247,10 @@
                             </div>
                             <div class="product-footer-meta">
                                 <p><span>Category:</span>
-                                    <a href="{% url 'shop:shop' %}">Full Sweater</a>,
-                                    <a href="{% url 'shop:shop' %}">SweatShirt</a>,
-                                    <a href="{% url 'shop:shop' %}">Jacket</a>,
-                                    <a href="{% url 'shop:shop' %}">Blazer</a>
+                                    <a href="{% url 'shop:shop' 'all' %}">Full Sweater</a>,
+                                    <a href="{% url 'shop:shop' 'all' %}">SweatShirt</a>,
+                                    <a href="{% url 'shop:shop' 'all' %}">Jacket</a>,
+                                    <a href="{% url 'shop:shop' 'all' %}">Blazer</a>
                                 </p>
                             </div>
                         </div>
@@ -319,11 +321,11 @@
                                             <tr>
                                                 <th>Color</th>
                                                 <td>
-                                                    <a href="{% url 'shop:shop' %}">Black</a>,
-                                                    <a href="{% url 'shop:shop' %}">Gray</a>,
-                                                    <a href="{% url 'shop:shop' %}">Red</a>,
-                                                    <a href="{% url 'shop:shop' %}">Violet</a>,
-                                                    <a href="{% url 'shop:shop' %}">Yellow</a>
+                                                    <a href="{% url 'shop:shop' 'all' %}">Black</a>,
+                                                    <a href="{% url 'shop:shop' 'all' %}">Gray</a>,
+                                                    <a href="{% url 'shop:shop' 'all' %}">Red</a>,
+                                                    <a href="{% url 'shop:shop' 'all' %}">Violet</a>,
+                                                    <a href="{% url 'shop:shop' 'all' %}">Yellow</a>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -422,6 +424,7 @@
                         </div>
                     </div>
                 </div>
+                <img src="{{ MEDIA_URL }}/img/product_details.png" class="details_image" alt=""/>
                 <div class="row mb--77 mb-md--57">
                     <div class="col-12">
                         <div class="element-carousel slick-vertical-center" data-slick-options='{

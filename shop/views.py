@@ -2,15 +2,30 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import TemplateView
+from index import models
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 
 class ShopView(TemplateView):
     template_name = "shop/shop.html"
 
-    def get(self, request):
-        return render(request, self.template_name)
+    def get(self, request, category):
+        all_product = models.Image.objects.filter(category__main_category=category)
+        paginator = Paginator(all_product, 8)
+        try:
+            page = int(request.GET.get('page', '1'))
+        except ValueError:
+            page = 1
+        try:
+            all_product = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            all_product = paginator.page(paginator.num_pages)
 
-    def post(self, request):
+        context = {'all_product': all_product}
+        return render(request, self.template_name, context)
+
+    def post(self, request, category):
+        print(category)
         return render(request, self.template_name)
 
 

@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="slider-content__btn">
                                             <a
-                                                    href="{% url 'shop:shop' %}"
+                                                    href="{% url 'shop:shop' 'all' %}"
                                                     class="btn-link"
                                                     data-animation="fadeInUp"
                                                     data-duration=".3s"
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="slider-content__btn">
                                             <a
-                                                    href="{% url 'shop:shop' %}"
+                                                    href="{% url 'shop:shop' 'all' %}"
                                                     class="btn-link"
                                                     data-animation="fadeInUp"
                                                     data-duration=".3s"
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="slider-content__btn">
                                             <a
-                                                    href="{% url 'shop:shop' %}"
+                                                    href="{% url 'shop:shop' 'all' %}"
                                                     class="btn-link"
                                                     data-animation="fadeInUp"
                                                     data-duration=".3s"
@@ -219,7 +219,7 @@
                                         </div>
                                         <div class="slider-content__btn">
                                             <a
-                                                    href="{% url 'shop:shop' %}"
+                                                    href="{% url 'shop:shop' 'all' %}"
                                                     class="btn-link"
                                                     data-animation="fadeInUp"
                                                     data-duration=".3s"
@@ -275,7 +275,7 @@
                                         </div>
                                         <div class="slider-content__btn">
                                             <a
-                                                    href="{% url 'shop:shop' %}"
+                                                    href="{% url 'shop:shop' 'all' %}"
                                                     class="btn-link"
                                                     data-animation="fadeInUp"
                                                     data-duration=".3s"
@@ -474,7 +474,7 @@
                                 <div class="product__image">
                                     <figure class="product__image--holder">
                                         <img
-                                                src="{{ MEDIA_URL }}/img/xinkuantuijian/feiji.jpg"
+                                                src="{{ MEDIA_URL }}/img/xinkuantuijian/catamino.jpg"
                                                 alt="Product"
                                         />
                                     </figure>
@@ -508,7 +508,7 @@
                                 <div class="product__info">
                                     <div class="product__info--left">
                                         <h3 class="product__title">
-                                            <a href="{% url 'product_details:product_details' %}">Plane</a>
+                                            <a href="{% url 'product_details:product_details' %}">Catamino</a>
                                         </h3>
                                         <div class="product__price">
                                             <span class="money">132.00</span>
@@ -670,8 +670,8 @@
                                         data-bg-image="{{ MEDIA_URL }}/img/banner/banner-bg-01.jpg"
                                 >
                                     <div class="banner__info-inner">
-                                        <h2 class="banner__title">3d Paper Foam Puzzle</h2>
-                                        <a href="{% url 'shop:shop' %}" class="banner__btn">Shop Now</a>
+                                        <h2 class="banner__title">3d Foam Paper Puzzle</h2>
+                                        <a href="{% url 'shop:shop' '3d Foam Paper Puzzle' %}" class="banner__btn">Shop Now</a>
                                         <p class="banner__text">GET EXTRA DISCOUNT 26% OFF</p>
                                     </div>
                                 </div>
@@ -694,7 +694,7 @@
                                 >
                                     <div class="banner__info-inner">
                                         <h2 class="banner__title">3d Wodden Puzzle</h2>
-                                        <a href="{% url 'shop:shop' %}" class="banner__btn">Shop Now</a>
+                                        <a href="{% url 'shop:shop' '3d Wodden Puzzle' %}" class="banner__btn">Shop Now</a>
                                         <p class="banner__text">GET EXTRA DISCOUNT 26% OFF</p>
                                     </div>
                                 </div>
@@ -728,7 +728,7 @@
                                 >
                                     <div class="banner__info-inner">
                                         <h2 class="banner__title">Jigsaw Puzzle</h2>
-                                        <a href="{% url 'shop:shop' %}" class="banner__btn">Shop Now</a>
+                                        <a href="{% url 'shop:shop' 'Jigsaw Puzzle'%}" class="banner__btn">Shop Now</a>
                                         <p class="banner__text">GET EXTRA DISCOUNT 26% OFF</p>
                                     </div>
                                 </div>
@@ -750,8 +750,8 @@
                                         data-bg-image="{{ MEDIA_URL }}/img/banner/banner-bg-01.jpg"
                                 >
                                     <div class="banner__info-inner">
-                                        <h2 class="banner__title">Solid Wood</h2>
-                                        <a href="{% url 'shop:shop' %}" class="banner__btn">Shop Now</a>
+                                        <h2 class="banner__title">Brain teaser</h2>
+                                        <a href="{% url 'shop:shop' 'Brain teaser'%}" class="banner__btn">Shop Now</a>
                                         <p class="banner__text">GET EXTRA DISCOUNT 26% OFF</p>
                                     </div>
                                 </div>
@@ -1292,7 +1292,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-16-321x450.png"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle.jpg"
                                                     alt="Countdown Product"
                                             />
                                         </figure>
@@ -1300,7 +1300,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-16-321x450.png"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle1.jpg"
                                                     alt="Countdown Product"
                                             />
                                         </figure>
@@ -1308,7 +1308,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-16-321x450.png"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle2.jpg"
                                                     alt="Countdown Product"
                                             />
                                         </figure>
@@ -1316,7 +1316,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-16-321x450.png"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle3.jpg"
                                                     alt="Countdown Product"
                                             />
                                         </figure>
@@ -1324,7 +1324,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-16-321x450.png"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle4.jpg"
                                                     alt="Countdown Product"
                                             />
                                         </figure>
@@ -1348,7 +1348,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-11-123x127.jpg"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle-s.jpg"
                                                     alt="Product Nav Image"
                                             />
                                         </figure>
@@ -1356,7 +1356,7 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-12-123x127.jpg"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle-s1.jpg"
                                                     alt="Product Nav Image"
                                             />
                                         </figure>
@@ -1364,7 +1364,23 @@
                                     <div class="item">
                                         <figure>
                                             <img
-                                                    src="{{ MEDIA_URL }}/img/products/product-13-123x127.jpg"
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle-s2.jpg"
+                                                    alt="Product Nav Image"
+                                            />
+                                        </figure>
+                                    </div>
+                                    <div class="item">
+                                        <figure>
+                                            <img
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle-s3.jpg"
+                                                    alt="Product Nav Image"
+                                            />
+                                        </figure>
+                                    </div>
+                                    <div class="item">
+                                        <figure>
+                                            <img
+                                                    src="{{ MEDIA_URL }}/img/fivemagicpuzzle/fivemagicpuzzle-s4.jpg"
                                                     alt="Product Nav Image"
                                             />
                                         </figure>
@@ -1424,7 +1440,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{% url 'shop:shop' %}" class="btn-link">Shop Now</a>
+                            <a href="{% url 'shop:shop' 'all' %}" class="btn-link">Shop Now</a>
                         </div>
                     </div>
                 </div>
