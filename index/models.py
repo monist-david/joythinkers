@@ -1,13 +1,13 @@
+import os
+
 from django.db import models
 
-
-# Create your models here.
-class MainImage(models.Model):
-    image = models.ManyToManyField('Image', blank=True)
+from joythinkers import settings
 
 
 class Image(models.Model):
-    product_picture = models.ImageField()
+    name = models.CharField(max_length=100, blank=True, default='')
+    product_picture = models.ImageField(upload_to='500555/')
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     size = models.ForeignKey("Size", on_delete=models.CASCADE, default="", null=True, blank=True)
 

@@ -62,7 +62,7 @@
                         <div class="shop-products">
                             <div class="row">
                                 {% for image in all_product %}
-{#                                    {{ image.product_picture.name|hasNumber }}#}
+                                    {% if image.product_picture.name|hasNumber %}
                                     <div class="col-xl-4 col-sm-6 mb--50">
                                         <div class="payne-product">
                                             <div class="product__inner">
@@ -70,7 +70,7 @@
                                                     <figure class="product__image--holder">
                                                         <img src="{{ image.product_picture.url }}" alt="Product">
                                                     </figure>
-                                                    <a href="{% url 'product_details:product_details' %}"
+                                                    <a href="{% url 'product_details:product_details' image.name %}"
                                                        class="product__overlay"></a>
                                                     <div class="product__action">
                                                         <a data-toggle="modal" data-target="#productModal"
@@ -95,7 +95,7 @@
                                                 <div class="product__info">
                                                     <div class="product__info--left">
                                                         <h3 class="product__title">
-                                                            <a href="{% url 'product_details:product_details' %}">{{image.product_picture.name|noext}}</a>
+                                                            <a href="{% url 'product_details:product_details' image.name %}">{{image.product_picture.name|noext}}</a>
                                                         </h3>
                                                         <div class="product__price">
                                                             <span class="money">132.00</span>
@@ -117,9 +117,9 @@
                                         <div class="payne-product-list">
                                             <div class="product__inner">
                                                 <figure class="product__image">
-                                                    <a href="{% url 'product_details:product_details' %}"
+                                                    <a href="{% url 'product_details:product_details' image.name %}"
                                                        class="d-block">
-                                                        <img src="{{ MEDIA_URL }}/img/products/product-03-270x300.jpg"
+                                                        <img src="{{ image.product_picture.url }}"
                                                              alt="Products">
                                                     </a>
                                                     <div class="product__thumbnail-action">
@@ -132,7 +132,7 @@
                                                 </figure>
                                                 <div class="product__info">
                                                     <h3 class="product__title">
-                                                        <a href="{% url 'product_details:product_details' %}">Lexbaro
+                                                        <a href="{% url 'product_details:product_details' image.name %}">Lexbaro
                                                             Begadi</a>
                                                     </h3>
                                                     <div class="product__price">
@@ -165,6 +165,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -193,30 +194,14 @@
                             <div class="shop-widget mb--40">
                                 <h3 class="widget-title mb--25">Category</h3>
                                 <ul class="widget-list category-list">
+                                    {% for category in all_category %}
                                     <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span class="category-title">BUILDING SERIES</span>
+                                        <a href="{% url 'shop:shop' category.category %}">
+                                            <span class="category-title">{{ category.category }}</span>
                                             <i class="fa fa-angle-double-right"></i>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span class="category-title">VOLLEYS</span>
-                                            <i class="fa fa-angle-double-right"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span class="category-title">ANLMAI & INSECT SERIES</span>
-                                            <i class="fa fa-angle-double-right"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span class="category-title">WEAPONS SERIES</span>
-                                            <i class="fa fa-angle-double-right"></i>
-                                        </a>
-                                    </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <div class="shop-widget mb--40">
@@ -255,51 +240,51 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="shop-widget mb--40">
-                                <h3 class="widget-title mb--25">Brand</h3>
-                                <ul class="widget-list brand-list">
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span>Walmart</span>
-                                            <strong class="color--red font-weight-medium">10</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span>Yellow</span>
-                                            <strong class="color--red font-weight-medium">50</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span>H &amp; M</span>
-                                            <strong class="color--red font-weight-medium">46</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'shop:shop' 'all' %}">
-                                            <span>Black &amp; White</span>
-                                            <strong class="color--red font-weight-medium">46</strong>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shop-widget">
-                                <h3 class="widget-title mb--25">Tag</h3>
-                                <div class="tagcloud">
-                                    <a href="{% url 'shop:shop' 'all' %}">Cloth</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Blazer</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Jacket</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Polo Shirt</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">T-Shirt</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Shoes</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Pant</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Party Dress</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Coktail Dress</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Sweater</a>
-                                    <a href="{% url 'shop:shop' 'all' %}">Jeans</a>
-                                </div>
-                            </div>
+{#                            <div class="shop-widget mb--40">#}
+{#                                <h3 class="widget-title mb--25">Brand</h3>#}
+{#                                <ul class="widget-list brand-list">#}
+{#                                    <li>#}
+{#                                        <a href="{% url 'shop:shop' 'all' %}">#}
+{#                                            <span>Walmart</span>#}
+{#                                            <strong class="color--red font-weight-medium">10</strong>#}
+{#                                        </a>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <a href="{% url 'shop:shop' 'all' %}">#}
+{#                                            <span>Yellow</span>#}
+{#                                            <strong class="color--red font-weight-medium">50</strong>#}
+{#                                        </a>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <a href="{% url 'shop:shop' 'all' %}">#}
+{#                                            <span>H &amp; M</span>#}
+{#                                            <strong class="color--red font-weight-medium">46</strong>#}
+{#                                        </a>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <a href="{% url 'shop:shop' 'all' %}">#}
+{#                                            <span>Black &amp; White</span>#}
+{#                                            <strong class="color--red font-weight-medium">46</strong>#}
+{#                                        </a>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                            <div class="shop-widget">#}
+{#                                <h3 class="widget-title mb--25">Tag</h3>#}
+{#                                <div class="tagcloud">#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Cloth</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Blazer</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Jacket</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Polo Shirt</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">T-Shirt</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Shoes</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Pant</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Party Dress</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Coktail Dress</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Sweater</a>#}
+{#                                    <a href="{% url 'shop:shop' 'all' %}">Jeans</a>#}
+{#                                </div>#}
+{#                            </div>#}
                         </aside>
                     </div>
                 </div>

@@ -3,12 +3,22 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import TemplateView
 
+from index import models
+from index.models import Size
+
 
 class ProductDetailsView(TemplateView):
     template_name = "product_details/product-details.html"
 
-    def get(self, request):
-        return render(request, self.template_name)
+    def get(self, request, products):
+        all_product_270300 = models.Image.objects.filter(name=products,
+                                                         size=Size.objects.get(size="270300"))
+        all_product_500555 = models.Image.objects.filter(name=products, size=Size.objects.get(size="500555"))
+        print(all_product_270300)
+        context = {'all_product_270300': all_product_270300,
+                   'all_product_500555': all_product_500555}
+
+        return render(request, self.template_name, context)
 
     def post(self, request):
         return render(request, self.template_name)

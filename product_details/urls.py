@@ -8,7 +8,7 @@ from .views import ProductDetailsView, ProductDetailsAffiliateView, ProductDetai
 
 app_name = 'product_details'
 urlpatterns = [
-    path('', ProductDetailsView.as_view(), name='product_details'),
+    path('<str:products>/', ProductDetailsView.as_view(), name='product_details'),
     path('product_details_affiliate/', ProductDetailsAffiliateView.as_view(), name='product_details_affiliate'),
     path('product_details_gallery_left/', ProductDetailsGalleryLeftView.as_view(), name='product_details_gallery_left'),
     path('product_details_gallery_right/', ProductDetailsGalleryRightView.as_view(),

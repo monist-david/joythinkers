@@ -11,7 +11,13 @@ class ShopView(TemplateView):
 
     def get(self, request, category):
         all_product = models.Image.objects.filter(category__main_category=category)
-        paginator = Paginator(all_product, 8)
+        if not all_product:
+            all_product = models.Image.objects.filter(category__category=category)
+        all_category = models.Category.objects.filter(main_category=category)
+        if not all_category:
+            all_category = models.Category.objects.filter(category=category)
+            all_category = models.Category.objects.filter(main_category=all_category[0].main_category)
+        paginator = Paginator(all_product, 100)
         try:
             page = int(request.GET.get('page', '1'))
         except ValueError:
@@ -21,7 +27,8 @@ class ShopView(TemplateView):
         except (EmptyPage, InvalidPage):
             all_product = paginator.page(paginator.num_pages)
 
-        context = {'all_product': all_product}
+        context = {'all_product': all_product,
+                   'all_category': all_category}
         return render(request, self.template_name, context)
 
     def post(self, request, category):
