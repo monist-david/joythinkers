@@ -61,7 +61,7 @@
                         </div>
                         <div class="shop-products">
                             <div class="row">
-                                {% for image in all_product %}
+                                {% for image in all_products %}
                                     {% if image.product_picture.name|hasNumber %}
                                     <div class="col-xl-4 col-sm-6 mb--50">
                                         <div class="payne-product">
@@ -171,20 +171,20 @@
                         </div>
                         <nav class="pagination-wrap">
                             <ul class="pagination">
-                                {% if all_product.has_previous %}
-                                    <li><a class="page-number" href="?page={{ all_product.previous_page_number }}">&laquo;</a>
+                                {% if all_products.has_previous %}
+                                    <li><a class="page-number" href="?page={{ all_products.previous_page_number }}">&laquo;</a>
                                     </li>
                                 {% endif %}
 
                                 <li><span class="page-number current">
-                                            {{ all_product.number }}
+                                            {{ all_products.number }}
                                         </span>
                                 </li>
                                 <li><span class="dot"></span></li>
                                 <li><span class="dot"></span></li>
                                 <li><span class="dot"></span></li>
-                                {% if all_product.has_next %}
-                                    <li><a class="page-number" href="?page={{ all_product.next_page_number }}">&raquo;</a></li>
+                                {% if all_products.has_next %}
+                                    <li><a class="page-number" href="?page={{ all_products.next_page_number }}">&raquo;</a></li>
                                 {% endif %}
                             </ul>
                         </nav>

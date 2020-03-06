@@ -4,13 +4,13 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from index import models
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from .templatetags import printname
 
 
 class ShopView(TemplateView):
     template_name = "shop/shop.html"
 
     def get(self, request, category):
-        print(category)
         all_product = models.Image.objects.filter(category__main_category=category)
         if not all_product:
             all_product = models.Image.objects.filter(category__category=category)
@@ -18,17 +18,21 @@ class ShopView(TemplateView):
         if not all_category:
             all_category = models.Category.objects.filter(category=category)
             all_category = models.Category.objects.filter(main_category=all_category[0].main_category)
-        paginator = Paginator(all_product, 100)
+        all_products = []
+        for product in all_product:
+            if printname.hasNumber(product.product_picture.name):
+                all_products.append(product)
+        paginator = Paginator(all_products, 8)
         try:
             page = int(request.GET.get('page', '1'))
         except ValueError:
             page = 1
         try:
-            all_product = paginator.page(page)
+            all_products = paginator.page(page)
         except (EmptyPage, InvalidPage):
-            all_product = paginator.page(paginator.num_pages)
+            all_products = paginator.page(paginator.num_pages)
 
-        context = {'all_product': all_product,
+        context = {'all_products': all_products,
                    'all_category': all_category}
         return render(request, self.template_name, context)
 
