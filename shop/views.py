@@ -10,6 +10,7 @@ class ShopView(TemplateView):
     template_name = "shop/shop.html"
 
     def get(self, request, category):
+        print(category)
         all_product = models.Image.objects.filter(category__main_category=category)
         if not all_product:
             all_product = models.Image.objects.filter(category__category=category)
